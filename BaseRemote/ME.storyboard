@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ezp-Bz-ITD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ME System-->
+        <scene sceneID="iHD-Dx-bI9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAc-9m-rW2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="Ezp-Bz-ITD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ME System" image="squares.below.rectangle" catalog="system" id="BFf-ig-LpT"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LE0-06-ZTR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FJg-Zz-mjv" kind="relationship" relationship="rootViewController" id="ZaS-1T-7pO"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1414" y="-468"/>
+        </scene>
+        <!--MEVC-->
+        <scene sceneID="9r6-sT-ZQ4">
+            <objects>
+                <viewController id="FJg-Zz-mjv" customClass="MEVC" customModule="BaseRemote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DTe-CE-CBx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="G7A-Ag-4ru">
+                                <rect key="frame" x="152.5" y="338" width="109" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ME Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gli-Lu-mCS">
+                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIT-9k-arB">
+                                        <rect key="frame" x="86.5" y="0.0" width="22.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Is-GC-Ahh">
+                                <rect key="frame" x="185" y="374.5" width="44" height="30"/>
+                                <state key="normal" title="toggle"/>
+                                <connections>
+                                    <action selector="toggledME:" destination="FJg-Zz-mjv" eventType="touchUpInside" id="aQd-yM-lDp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Is-GC-Ahh" firstAttribute="centerX" secondItem="DTe-CE-CBx" secondAttribute="centerX" id="8tb-ID-1AC"/>
+                            <constraint firstItem="9Is-GC-Ahh" firstAttribute="top" secondItem="G7A-Ag-4ru" secondAttribute="bottom" constant="16" id="jTw-YP-1AS"/>
+                            <constraint firstItem="G7A-Ag-4ru" firstAttribute="centerX" secondItem="DTe-CE-CBx" secondAttribute="centerX" id="ymo-K5-3gz"/>
+                            <constraint firstItem="G7A-Ag-4ru" firstAttribute="top" secondItem="BRy-Vt-GoX" secondAttribute="top" constant="250" id="z8I-It-X9y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BRy-Vt-GoX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HlW-BW-qmG"/>
+                    <connections>
+                        <outlet property="statusLabel" destination="BIT-9k-arB" id="Ibi-1w-SpW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lcU-69-Sxp" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2404" y="-468"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="squares.below.rectangle" catalog="system" width="64" height="46"/>
+    </resources>
+</document>
