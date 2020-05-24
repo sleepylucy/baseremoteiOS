@@ -118,24 +118,24 @@ class PowerStuffTVC: UITableViewController {
             guard let responseData = response.data else { return }
             let decoder = JSONDecoder.init()
             
-            guard let powerGens = try? decoder.decode(PowerGens.self, from: responseData) else {
-                print("Failed to decode Power Gens")
-                return
+            do {
+                let powerGens = try decoder.decode(PowerGens.self, from: responseData)
+                self.got(powerGens)
+            } catch {
+                print("Failed to decode Power Gens \(error)")
             }
-            
-            self.got(powerGens)
         }
         
         AF.request(storageUrl).responseJSON { response in
             guard let responseData = response.data else { return }
             let decoder = JSONDecoder.init()
             
-            guard let powerPacks = try? decoder.decode(PowerPacks.self, from: responseData) else {
-                print("Failed to decode Power Packs")
-                return
+            do {
+                let powerPacks = try decoder.decode(PowerPacks.self, from: responseData)
+                self.got(powerPacks)
+            } catch {
+                print("Failed to decode Power Packs \(error)")
             }
-            
-            self.got(powerPacks)
         }
     }
     
@@ -246,7 +246,7 @@ class PowerStuffTVC: UITableViewController {
         guard let path = Bundle.main.path(forResource: "Values", ofType: "plist") else { return nil }
         guard let dict = NSDictionary.init(contentsOfFile: path) else { return nil }
         guard let url = dict["url"] as? String else { return nil }
-        guard let powerUrl = dict["pssUrl"] as? String else { return nil }
+        guard let powerUrl = dict["powerUrl"] as? String else { return nil }
         return URL.init(string: url + powerUrl)
     }
     
