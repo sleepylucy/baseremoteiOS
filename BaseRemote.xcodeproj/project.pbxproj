@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,11 @@
 		8D19798922B85BC600001BC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D19798722B85BC600001BC2 /* Main.storyboard */; };
 		8D19798B22B85BCC00001BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D19798A22B85BCC00001BC2 /* Assets.xcassets */; };
 		8D19798E22B85BCC00001BC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D19798C22B85BCC00001BC2 /* LaunchScreen.storyboard */; };
-		8D22CC9622C153E80001C992 /* Values.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D22CC9522C153E80001C992 /* Values.plist */; };
+		8DC7CE692479EE12001C5289 /* MeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7CE682479EE12001C5289 /* MeSystem.swift */; };
+		8DC7CE6B2479EE4C001C5289 /* PowerGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7CE6A2479EE4C001C5289 /* PowerGen.swift */; };
+		8DC7CE6D2479EEBD001C5289 /* PowerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7CE6C2479EEBD001C5289 /* PowerPack.swift */; };
+		8DC7CE6F2479F1C1001C5289 /* Values.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DC7CE6E2479F1C1001C5289 /* Values.plist */; };
+		8DC7CE71247A7685001C5289 /* PowerStuff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC7CE70247A7685001C5289 /* PowerStuff.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,11 @@
 		8D19798A22B85BCC00001BC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D19798D22B85BCC00001BC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D19798F22B85BCC00001BC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D22CC9522C153E80001C992 /* Values.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Values.plist; sourceTree = "<group>"; };
+		8DC7CE682479EE12001C5289 /* MeSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSystem.swift; sourceTree = "<group>"; };
+		8DC7CE6A2479EE4C001C5289 /* PowerGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerGen.swift; sourceTree = "<group>"; };
+		8DC7CE6C2479EEBD001C5289 /* PowerPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerPack.swift; sourceTree = "<group>"; };
+		8DC7CE6E2479F1C1001C5289 /* Values.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Values.plist; sourceTree = "<group>"; };
+		8DC7CE70247A7685001C5289 /* PowerStuff.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PowerStuff.storyboard; sourceTree = "<group>"; };
 		E0F6AAECB845FABB3861019F /* Pods-BaseRemote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseRemote.release.xcconfig"; path = "Target Support Files/Pods-BaseRemote/Pods-BaseRemote.release.xcconfig"; sourceTree = "<group>"; };
 		EF54F1EBAAF1C1FC5A2BE465 /* Pods_BaseRemote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseRemote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,17 +87,29 @@
 			isa = PBXGroup;
 			children = (
 				8D19798322B85BC600001BC2 /* AppDelegate.swift */,
+				8DC7CE672479EDF4001C5289 /* Objects */,
 				8D0778C222BFFEFE0071C712 /* OverviewVC.swift */,
 				8D19798522B85BC600001BC2 /* MEVC.swift */,
 				8D19798722B85BC600001BC2 /* Main.storyboard */,
 				8D0778C022BFFE040071C712 /* Overview.storyboard */,
+				8DC7CE70247A7685001C5289 /* PowerStuff.storyboard */,
 				8D0778BE22BFFBBF0071C712 /* ME.storyboard */,
 				8D19798A22B85BCC00001BC2 /* Assets.xcassets */,
 				8D19798C22B85BCC00001BC2 /* LaunchScreen.storyboard */,
 				8D19798F22B85BCC00001BC2 /* Info.plist */,
-				8D22CC9522C153E80001C992 /* Values.plist */,
+				8DC7CE6E2479F1C1001C5289 /* Values.plist */,
 			);
 			path = BaseRemote;
+			sourceTree = "<group>";
+		};
+		8DC7CE672479EDF4001C5289 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				8DC7CE682479EE12001C5289 /* MeSystem.swift */,
+				8DC7CE6A2479EE4C001C5289 /* PowerGen.swift */,
+				8DC7CE6C2479EEBD001C5289 /* PowerPack.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		BD8727434C12783A06271A65 /* Frameworks */ = {
@@ -160,10 +180,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D22CC9622C153E80001C992 /* Values.plist in Resources */,
 				8D19798E22B85BCC00001BC2 /* LaunchScreen.storyboard in Resources */,
 				8D19798B22B85BCC00001BC2 /* Assets.xcassets in Resources */,
+				8DC7CE6F2479F1C1001C5289 /* Values.plist in Resources */,
 				8D0778BF22BFFBBF0071C712 /* ME.storyboard in Resources */,
+				8DC7CE71247A7685001C5289 /* PowerStuff.storyboard in Resources */,
 				8D0778C122BFFE040071C712 /* Overview.storyboard in Resources */,
 				8D19798922B85BC600001BC2 /* Main.storyboard in Resources */,
 			);
@@ -200,16 +221,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BaseRemote/Pods-BaseRemote-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-BaseRemote/Pods-BaseRemote-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-BaseRemote/Pods-BaseRemote-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -223,8 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC7CE6D2479EEBD001C5289 /* PowerPack.swift in Sources */,
+				8DC7CE692479EE12001C5289 /* MeSystem.swift in Sources */,
 				8D19798622B85BC600001BC2 /* MEVC.swift in Sources */,
 				8D0778C322BFFEFE0071C712 /* OverviewVC.swift in Sources */,
+				8DC7CE6B2479EE4C001C5289 /* PowerGen.swift in Sources */,
 				8D19798422B85BC600001BC2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

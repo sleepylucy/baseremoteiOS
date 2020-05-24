@@ -55,17 +55,19 @@ class OverviewVC: UIViewController {
         guard let meURL = URL.init(string: OverviewVC.getMeUrl() ?? "") else { return }
         guard let pssURL = URL.init(string: OverviewVC.getPssUrl() ?? "") else { return }
         
-        AF.request(meURL).responseString { response in
-            guard let responseStr = try? response.result.get() else { return }
-            let components = responseStr.components(separatedBy: "/")
+        AF.request(meURL).responseJSON { response in
+            guard let responseData = response.data else { return }
+            let decoder = JSONDecoder.init()
             
-            self.meStatus = components[0] == "true"
-            let euUsage = components[1]
+            guard let meSystems = try? decoder.decode(MeSystems.self, from: responseData) else {
+                print("Failed to decode ME Systems")
+                return
+            }
             
-            if self.meStatus {
+            if meSystems.oldBase.active {
                 self.meUsageLabel.isHidden = false
                 self.meEUValueLabel.textColor = UIColor.label
-                self.meEUValueLabel.text = euUsage
+                self.meEUValueLabel.text = "\(meSystems.oldBase.powerConsumption)"
                 self.meEuLabel.isHidden = false
                 
                 self.meToggleButton.setTitle("Turn off", for: .normal)
@@ -81,19 +83,23 @@ class OverviewVC: UIViewController {
             }
         }
 
-        AF.request(pssURL).responseString { response in
-            guard let responseStr = try? response.result.get() else { return }
-            let components = responseStr.components(separatedBy: "/")
+        AF.request(pssURL).responseJSON { response in
+            guard let responseData = response.data else { return }
+            let decoder = JSONDecoder.init()
+            
+            guard let pssSystems = try? decoder.decode(PowerPacks.self, from: responseData) else {
+                print("Failed to decode PowerPack Systems")
+                return
+            }
             
             let oldStorage = self.storage
-            self.storage = Int(components[0]) ?? 0
-            let capacity = Int(components[1]) ?? 1
-            let maintenance = components[2] == "true"
+            self.storage = pssSystems.oldBase.stored
             
             self.storageHist[self.storageI] = self.storage - oldStorage
             self.storageI += 1
-            if self.storageI >= 5 { self.storageI = 0 }
             
+            if self.storageI >= 5 { self.storageI = 0 }
+
             var change = 0
             for int in self.storageHist {
                 change += int
@@ -107,9 +113,9 @@ class OverviewVC: UIViewController {
                 self.powerEuChangeLabel.textColor = UIColor.systemPink
                 self.powerEuChangeLabel.text = "-\(abs(change)) EU/t"
             }
-            
-            
-            if maintenance {
+
+
+            if pssSystems.oldBase.maintenance {
                 self.powerProgressView.progressTintColor = UIColor.systemPink
                 self.powerStatusLabel.textColor = UIColor.systemPink
                 self.powerStatusLabel.text = "Has maintenance issues"
@@ -118,16 +124,16 @@ class OverviewVC: UIViewController {
                 self.powerStatusLabel.textColor = UIColor.systemGreen
                 self.powerStatusLabel.text = "No issues"
             }
-            
-            let percentage = Float(self.storage) / Float(capacity)
+
+            let percentage = Float(self.storage) / Float(pssSystems.oldBase.capacity)
             self.powerProgressView.progress = percentage
             let percentageInt = Int(percentage * 100)
             self.powerPercentLabel.text = "\(percentageInt) %"
-            
+
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             let storageString = numberFormatter.string(from: NSNumber(value: self.storage)) ?? "0"
-            let capacityString = numberFormatter.string(from: NSNumber(value: capacity)) ?? "1"
+            let capacityString = numberFormatter.string(from: NSNumber(value: pssSystems.oldBase.capacity)) ?? "1"
             self.powerEuLabel.text = storageString + " / " + capacityString + " EU"
         }
     }
