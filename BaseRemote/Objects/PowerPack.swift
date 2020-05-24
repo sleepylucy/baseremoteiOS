@@ -9,12 +9,14 @@
 import Foundation
 
 struct PowerPacks: Codable {
-    var oldBase: PowerPack
-    var newBase: PowerPack?
+    var mountain: PowerPack?
+    var tower: PowerPack?
+    var chem: PowerPack?
     
     enum CodingKeys: String, CodingKey {
-        case oldBase = "OldBase"
-        case newBase = "NewBase"
+        case mountain = "OldBase"
+        case tower = "NewBase"
+        case chem = "Chem"
     }
 }
 
@@ -22,4 +24,5 @@ struct PowerPack: Codable {
     var capacity: Int
     var stored: Int
     var maintenance: Bool
+    var change: Int
 }

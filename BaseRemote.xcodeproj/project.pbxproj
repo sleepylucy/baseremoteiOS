@@ -21,6 +21,10 @@
 		8DC7CE6D2479EEBD001C5289 /* PowerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7CE6C2479EEBD001C5289 /* PowerPack.swift */; };
 		8DC7CE6F2479F1C1001C5289 /* Values.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DC7CE6E2479F1C1001C5289 /* Values.plist */; };
 		8DC7CE71247A7685001C5289 /* PowerStuff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC7CE70247A7685001C5289 /* PowerStuff.storyboard */; };
+		8DC7CE74247A9DB8001C5289 /* PowerStuffTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7CE73247A9DB8001C5289 /* PowerStuffTVC.swift */; };
+		8DC7CE76247AA1FD001C5289 /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7CE75247AA1FD001C5289 /* SwiftGif.swift */; };
+		8DC7CE79247AA3BB001C5289 /* turbine-animated-black.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8DC7CE77247AA3BB001C5289 /* turbine-animated-black.gif */; };
+		8DC7CE7A247AA3BB001C5289 /* turbine-animated-white.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8DC7CE78247AA3BB001C5289 /* turbine-animated-white.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		8DC7CE6C2479EEBD001C5289 /* PowerPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerPack.swift; sourceTree = "<group>"; };
 		8DC7CE6E2479F1C1001C5289 /* Values.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Values.plist; sourceTree = "<group>"; };
 		8DC7CE70247A7685001C5289 /* PowerStuff.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PowerStuff.storyboard; sourceTree = "<group>"; };
+		8DC7CE73247A9DB8001C5289 /* PowerStuffTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStuffTVC.swift; sourceTree = "<group>"; };
+		8DC7CE75247AA1FD001C5289 /* SwiftGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
+		8DC7CE77247AA3BB001C5289 /* turbine-animated-black.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "turbine-animated-black.gif"; sourceTree = "<group>"; };
+		8DC7CE78247AA3BB001C5289 /* turbine-animated-white.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "turbine-animated-white.gif"; sourceTree = "<group>"; };
 		E0F6AAECB845FABB3861019F /* Pods-BaseRemote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseRemote.release.xcconfig"; path = "Target Support Files/Pods-BaseRemote/Pods-BaseRemote.release.xcconfig"; sourceTree = "<group>"; };
 		EF54F1EBAAF1C1FC5A2BE465 /* Pods_BaseRemote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseRemote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,13 +96,16 @@
 			children = (
 				8D19798322B85BC600001BC2 /* AppDelegate.swift */,
 				8DC7CE672479EDF4001C5289 /* Objects */,
-				8D0778C222BFFEFE0071C712 /* OverviewVC.swift */,
+				8DC7CE72247A9D9A001C5289 /* ViewController */,
 				8D19798522B85BC600001BC2 /* MEVC.swift */,
+				8DC7CE75247AA1FD001C5289 /* SwiftGif.swift */,
 				8D19798722B85BC600001BC2 /* Main.storyboard */,
 				8D0778C022BFFE040071C712 /* Overview.storyboard */,
 				8DC7CE70247A7685001C5289 /* PowerStuff.storyboard */,
 				8D0778BE22BFFBBF0071C712 /* ME.storyboard */,
 				8D19798A22B85BCC00001BC2 /* Assets.xcassets */,
+				8DC7CE77247AA3BB001C5289 /* turbine-animated-black.gif */,
+				8DC7CE78247AA3BB001C5289 /* turbine-animated-white.gif */,
 				8D19798C22B85BCC00001BC2 /* LaunchScreen.storyboard */,
 				8D19798F22B85BCC00001BC2 /* Info.plist */,
 				8DC7CE6E2479F1C1001C5289 /* Values.plist */,
@@ -110,6 +121,15 @@
 				8DC7CE6C2479EEBD001C5289 /* PowerPack.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		8DC7CE72247A9D9A001C5289 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8D0778C222BFFEFE0071C712 /* OverviewVC.swift */,
+				8DC7CE73247A9DB8001C5289 /* PowerStuffTVC.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		BD8727434C12783A06271A65 /* Frameworks */ = {
@@ -181,6 +201,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D19798E22B85BCC00001BC2 /* LaunchScreen.storyboard in Resources */,
+				8DC7CE7A247AA3BB001C5289 /* turbine-animated-white.gif in Resources */,
+				8DC7CE79247AA3BB001C5289 /* turbine-animated-black.gif in Resources */,
 				8D19798B22B85BCC00001BC2 /* Assets.xcassets in Resources */,
 				8DC7CE6F2479F1C1001C5289 /* Values.plist in Resources */,
 				8D0778BF22BFFBBF0071C712 /* ME.storyboard in Resources */,
@@ -242,6 +264,8 @@
 				8DC7CE6D2479EEBD001C5289 /* PowerPack.swift in Sources */,
 				8DC7CE692479EE12001C5289 /* MeSystem.swift in Sources */,
 				8D19798622B85BC600001BC2 /* MEVC.swift in Sources */,
+				8DC7CE74247A9DB8001C5289 /* PowerStuffTVC.swift in Sources */,
+				8DC7CE76247AA1FD001C5289 /* SwiftGif.swift in Sources */,
 				8D0778C322BFFEFE0071C712 /* OverviewVC.swift in Sources */,
 				8DC7CE6B2479EE4C001C5289 /* PowerGen.swift in Sources */,
 				8D19798422B85BC600001BC2 /* AppDelegate.swift in Sources */,

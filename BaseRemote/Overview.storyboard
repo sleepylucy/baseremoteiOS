@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-642" y="118"/>
         </scene>
-        <!--OverviewVC-->
+        <!--Overview-->
         <scene sceneID="ohu-K9-66O">
             <objects>
-                <viewController id="i7M-ri-6n0" customClass="OverviewVC" customModule="BaseRemote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Overview" id="i7M-ri-6n0" customClass="OverviewVC" customModule="BaseRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="La8-LO-2H0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZWa-93-gCn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rip-RE-oeK"/>
+                    <navigationItem key="navigationItem" title="Overview" id="rip-RE-oeK"/>
                     <connections>
                         <outlet property="meEUValueLabel" destination="tcG-fU-LYY" id="CUN-4l-9cG"/>
                         <outlet property="meEuLabel" destination="oIi-Pw-A3h" id="XZn-Tr-rx6"/>

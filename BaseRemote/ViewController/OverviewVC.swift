@@ -25,9 +25,6 @@ class OverviewVC: UIViewController {
     private var timer: Timer?
     
     var meStatus = true
-    var storage = 0
-    var storageI = 0
-    var storageHist = [0, 0, 0, 0, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,30 +89,18 @@ class OverviewVC: UIViewController {
                 return
             }
             
-            let oldStorage = self.storage
-            self.storage = pssSystems.oldBase.stored
+            guard let powerPack = pssSystems.mountain else { return }
             
-            self.storageHist[self.storageI] = self.storage - oldStorage
-            self.storageI += 1
-            
-            if self.storageI >= 5 { self.storageI = 0 }
-
-            var change = 0
-            for int in self.storageHist {
-                change += int
-            }
-            change = change / self.storageHist.count
-            change = change / 20
-            if change >= 0 {
+            if powerPack.change >= 0 {
                 self.powerEuChangeLabel.textColor = UIColor.systemGreen
-                self.powerEuChangeLabel.text = "+\(change) EU/t"
+                self.powerEuChangeLabel.text = "+\(powerPack.change) EU/t"
             } else {
                 self.powerEuChangeLabel.textColor = UIColor.systemPink
-                self.powerEuChangeLabel.text = "-\(abs(change)) EU/t"
+                self.powerEuChangeLabel.text = "\(powerPack.change)) EU/t"
             }
 
 
-            if pssSystems.oldBase.maintenance {
+            if powerPack.maintenance {
                 self.powerProgressView.progressTintColor = UIColor.systemPink
                 self.powerStatusLabel.textColor = UIColor.systemPink
                 self.powerStatusLabel.text = "Has maintenance issues"
@@ -125,15 +110,16 @@ class OverviewVC: UIViewController {
                 self.powerStatusLabel.text = "No issues"
             }
 
-            let percentage = Float(self.storage) / Float(pssSystems.oldBase.capacity)
+            let percentage = Float(powerPack.stored) / Float(powerPack.capacity)
             self.powerProgressView.progress = percentage
-            let percentageInt = Int(percentage * 100)
-            self.powerPercentLabel.text = "\(percentageInt) %"
+            let percentageInt = Int(percentage * 1000)
+            let percentageFloat = percentageInt / 10
+            self.powerPercentLabel.text = "\(percentageFloat) %"
 
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let storageString = numberFormatter.string(from: NSNumber(value: self.storage)) ?? "0"
-            let capacityString = numberFormatter.string(from: NSNumber(value: pssSystems.oldBase.capacity)) ?? "1"
+            let storageString = numberFormatter.string(from: NSNumber(value: powerPack.stored)) ?? "0"
+            let capacityString = numberFormatter.string(from: NSNumber(value: powerPack.capacity)) ?? "1"
             self.powerEuLabel.text = storageString + " / " + capacityString + " EU"
         }
     }
