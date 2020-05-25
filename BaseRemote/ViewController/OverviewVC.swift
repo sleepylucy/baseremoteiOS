@@ -96,7 +96,7 @@ class OverviewVC: UIViewController {
                 self.powerEuChangeLabel.text = "+\(powerPack.change) EU/t"
             } else {
                 self.powerEuChangeLabel.textColor = UIColor.systemPink
-                self.powerEuChangeLabel.text = "\(powerPack.change)) EU/t"
+                self.powerEuChangeLabel.text = "\(powerPack.change) EU/t"
             }
 
 
